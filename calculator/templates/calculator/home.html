@@ -1,0 +1,113 @@
+{% extends 'calculator/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="my-4 padding-sides" xmlns="http://www.w3.org/1999/html">
+        <div class="calculator-body border border-muted rounded p-2">
+            <div class="row mx-2 px-1 my-2" style="height:100px">
+                <div class="col-12 border border-muted rounded pl-0">
+                    <span class="col-1 btn no-background px-0 mt-2" onclick="deleteByOne()">
+                        <i class="fa fa-times-circle"></i>
+                    </span>
+                    <span class="col-11 px-2 mt-3 float-right text-right">
+                        <div class="row">
+                            <div class="col-12">
+                                <span id="answer_label" class="text-muted float-right text-right"><small>Answer =</small>
+                                    <label id="value_label">
+                                        <small>{{num1}} {{operator}} {{ num2}} : </small>
+                                        <i class="font-orange font-bold">{{answer}}</i>
+                                    </label>
+                                </span>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" id="display_label" class="float-right display-font border-0 text-right" readonly>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="row">
+                    <div class="col-3">
+<!--                        <input type="text" id="sqrt" class="btn bg-secondary calc-btn my-1" value="&#8730;" onclick="insertSqrt()" readonly="readonly"></input>-->
+                    </div>
+                    <div class="col-3">
+<!--                        <input type="text" id="square" class="btn bg-secondary calc-btn my-1" value="x&sup2;" onclick="insertSquare()" readonly="readonly"></input>-->
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="modulo" class="btn bg-secondary calc-btn my-1" value="%" onclick="insertModulo()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <label id="clearentry" class="btn bg-secondary calc-btn my-1" onclick="clearEntry()">CE</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <input type="text" id="num7" class="btn btn-light calc-btn my-1" value="7" onclick="insertSeven()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num8" class="btn btn-light calc-btn my-1" value="8" onclick="insertEight()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num9" class="btn btn-light calc-btn my-1" value="9" onclick="insertNine()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="divide" class="btn bg-secondary calc-btn my-1" value="/" onclick="insertDivide()" readonly="readonly"></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <input type="text" id="num4" class="btn btn-light calc-btn my-1" value="4" onclick="insertFour()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num5" class="btn btn-light calc-btn my-1" value="5" onclick="insertFive()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num6" class="btn btn-light calc-btn my-1" value="6" onclick="insertSix()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="multiply" class="btn bg-secondary calc-btn my-1" value="x" onclick="insertMultiply()" readonly="readonly"></input>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <input type="text" id="num1" class="btn btn-light calc-btn my-1" value="1" onclick="insertOne()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num2" class="btn btn-light calc-btn my-1" value="2" onclick="insertTwo()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num3" class="btn btn-light calc-btn my-1" value="3" onclick="insertThree()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="minus" class="btn bg-secondary calc-btn my-1" value="-" onclick="insertMinus()" readonly="readonly"></input>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <input type="text" id="decimal" class="btn btn-light calc-btn my-1" value="." onclick="insertDecimal()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="num0" class="btn btn-light calc-btn my-1" value="0" onclick="insertZero()" readonly="readonly"></input>
+                    </div>
+                    <div class="col-3">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="submit" id="equals" class="btn btn-orange calc-btn my-1" value="=" readonly="readonly"></input>
+                            {{ form.as_p }}
+
+                        </form>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="plus" class="btn bg-secondary calc-btn my-1" value="+" onclick="insertPlus()" readonly="readonly"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator | {{title}}</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+      <header>
+        <div>
+            <nav class="navbar navbar-dark bg-dark border-bottom-orange">
+                <div class="container">
+                  <a class="navbar-brand" href="#">
+                    <img src="{% static 'img/calculator.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        Calculator
+                  </a>
+                </div>
+            </nav>
+        </div>
+      </header>
+
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+
+      <div class="footer bg-dark text-center py-2 stick-to-bottom border-top-orange">
+          <a href="https://github.com/deepeshanandparab" target="_blank" class="no-text-decoration text-white ">
+              <i class="fa fa-github pointer mx-2" title="Github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/deepesh-parab-b58818194/" target="_blank" class="no-text-decoration text-white ">
+              <i class="fa fa-linkedin pointer mx-2" title="LinkedIn"></i>
+          </a>
+          </i>
+      </div>
+
+  <script src="{% static 'js/calculator.js' %}"></script>
+  </body>
+</html>
